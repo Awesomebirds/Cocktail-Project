@@ -19,7 +19,7 @@
   
   --text-primary: #f0f3f8;
   --text-secondary: #9da8b6;
-  --text-muted: #647082;
+  --text-muted: #9aa6b7;
   --text-gold: #e5c07b;
 
   --badge-light: #2ecc71;
@@ -153,65 +153,6 @@ html, body {
   width: 16px;
   height: 16px;
   flex-shrink: 0;
-}
-
-/* Search Bar */
-.search-section {
-  display: flex;
-  gap: 8px;
-  margin-bottom: 10px;
-}
-
-.search-box {
-  position: relative;
-  flex: 1;
-  display: flex;
-  align-items: center;
-}
-
-.search-icon {
-  position: absolute;
-  left: 12px;
-  color: var(--text-muted);
-  pointer-events: none;
-}
-
-.search-box input {
-  width: 100%;
-  background: rgba(255, 255, 255, 0.05);
-  border: 1px solid var(--border-subtle);
-  border-radius: var(--radius-md);
-  padding: 10px 36px 10px 38px;
-  color: var(--text-primary);
-  font-size: 13.5px;
-  outline: none;
-  transition: all 0.2s;
-}
-
-.search-box input:focus {
-  background: rgba(255, 255, 255, 0.08);
-  border-color: var(--accent-gold);
-  box-shadow: 0 0 0 2px var(--accent-gold-glow);
-}
-
-.search-box input::placeholder {
-  color: var(--text-muted);
-}
-
-.clear-btn {
-  position: absolute;
-  right: 10px;
-  background: none;
-  border: none;
-  color: var(--text-muted);
-  font-size: 18px;
-  cursor: pointer;
-  display: none;
-  padding: 2px 6px;
-}
-
-.clear-btn.active {
-  display: block;
 }
 
 .filter-toggle-btn {
@@ -505,12 +446,6 @@ html, body {
   position: relative;
 }
 
-.cocktail-visual img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
-
 .glass-svg {
   width: 36px;
   height: 36px;
@@ -593,7 +528,31 @@ html, body {
 
 
 /* Modals & Bottom Sheets */
+html.modal-scroll-locked {
+  overflow: hidden;
+  overscroll-behavior: none;
+}
+
+body.modal-scroll-locked {
+  position: fixed;
+  top: var(--locked-scroll-top);
+  left: 0;
+  right: 0;
+  width: 100%;
+  overflow: hidden;
+  overscroll-behavior: none;
+}
+
 .modal-backdrop {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  width: 100%;
+  height: 100%;
+  max-width: none;
+  max-height: none;
+  color: inherit;
+  overscroll-behavior: none;
   position: fixed;
   inset: 0;
   background: rgba(0, 0, 0, 0.7);
@@ -607,6 +566,9 @@ html, body {
   visibility: hidden;
   transition: opacity 0.28s ease, visibility 0.28s;
 }
+
+/* Keep the overlay in the native top layer, above fixed/filtered page layers. */
+.modal-backdrop::backdrop { background: transparent; }
 
 .modal-backdrop.open {
   opacity: 1;
@@ -696,6 +658,8 @@ html, body {
 }
 
 .modal-body {
+  min-height: 0;
+  touch-action: pan-y;
   padding: 20px;
   overflow-y: auto;
   overscroll-behavior: contain;
@@ -728,12 +692,6 @@ html, body {
   align-items: center;
   justify-content: center;
   overflow: hidden;
-}
-
-.detail-visual img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
 }
 
 .detail-visual .glass-svg {
@@ -1033,3 +991,24 @@ html, body {
   margin-top: 4px;
   opacity: 0.6;
 }
+
+[hidden] { display: none !important; }
+.filter-controls { display: flex; justify-content: flex-end; margin-bottom: 10px; }
+.filter-toggle-btn { min-height: 40px; }
+.cocktail-visual .glass-svg { width: 48px; height: 48px; }
+.detail-visual .glass-svg { width: 64px; height: 64px; }
+.cocktail-name { white-space: normal; }
+.card-title-row { display: flex; align-items: flex-start; gap: 8px; margin-bottom: 6px; }
+.card-title-row .cocktail-name { flex: 1; min-width: 0; margin-bottom: 0; }
+.card-title-row .featured-tag { flex-shrink: 0; margin-top: 2px; }
+.taste-meters { align-items: center; gap: 10px; }
+.taste-meters .abv-badge { margin-left: auto; white-space: nowrap; flex-shrink: 0; }
+@media (max-width: 360px) {
+  .taste-meters { gap: 8px; }
+  .meter-item { gap: 4px; }
+  .meter-dots { gap: 2px; }
+}
+.recipe-note { margin-top: 10px; font-size: 13px; }
+.archive-intro { color: var(--text-secondary); margin-bottom: 10px; }
+.menu-link { color: var(--accent-gold-light); display: inline-block; margin-bottom: 16px; }
+:focus-visible { outline: 2px solid var(--accent-gold-light); outline-offset: 4px; }

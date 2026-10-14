@@ -3,80 +3,70 @@
  * No Emojis used anywhere.
  */
 
-// Recommended Popular Cocktails List (Organized by spirit base)
-const FEATURED_NAMES = [
-  '진 토닉',             // 진
-  '스크루드라이버',       // 보드카
-  '씨 브리즈',           // 보드카
-  '베이 브리즈',         // 보드카
-  '코스모폴리탄',         // 보드카
-  '섹스 온 더 비치',      // 보드카
-  '모스크바 뮬',         // 보드카
-  '쿠바 리브레',         // 럼
-  '다이키리',            // 럼
-  '마가리타',            // 데킬라
-  '데킬라 선라이즈',      // 데킬라
-  '엘 디아블로 스타일',   // 데킬라
-  '갓파더',              // 위스키
-  '아마레또 사워',        // 리큐르
-  '피치 크러시',         // 리큐르
-  '옥보단',              // 리큐르
-  '롱 아일랜드 아이스티'  // 멀티 스피릿
-];
-
-function isFeaturedCocktail(c) {
-  if (c.featured === true) return true;
-  const cleanName = (c.name || '').replace(/\s+/g, '');
-  return FEATURED_NAMES.some(fn => fn.replace(/\s+/g, '') === cleanName);
-}
+const isBarPage = document.body.dataset.page === 'bar';
+let previousFocus = null;
+let detailBackPending = false;
+let lockedScrollPosition = null;
 
 // Application State
 const state = {
   cocktails: [],
-  activeCategory: 'featured', // Default view: Featured cocktails
+  activeCategory: isBarPage ? 'all' : 'featured',
   activeAbv: 'all',
   activeStyle: 'all',
   activeTaste: 'all',
-  searchQuery: '',
+  loadError: false,
   activeDetailId: null
 };
 
-// SVG Glass Icons (Highball, Cocktail/Coupe, Rocks)
-const glassIcons = {
-  highball: `
-    <svg class="glass-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
-      <path d="M7 3h10l-1.5 17a2 2 0 0 1-2 1.8h-3a2 2 0 0 1-2-1.8L7 3z"></path>
-      <line x1="8" y1="8" x2="16" y2="8" stroke-dasharray="2 2" opacity="0.6"></line>
-      <line x1="16" y1="1" x2="13" y2="10" stroke-width="1.2" opacity="0.5"></line>
-    </svg>
-  `,
-  cocktail: `
-    <svg class="glass-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
-      <polygon points="4 4 20 4 12 14 4 4"></polygon>
-      <line x1="12" y1="14" x2="12" y2="20"></line>
-      <line x1="8" y1="20" x2="16" y2="20"></line>
-    </svg>
-  `,
-  rocks: `
-    <svg class="glass-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
-      <path d="M6 5h12l-1 14a2 2 0 0 1-2 1.8h-6a2 2 0 0 1-2-1.8L6 5z"></path>
-      <rect x="9" y="11" width="6" height="5" rx="1" opacity="0.4"></rect>
-    </svg>
-  `
+// Glass silhouettes share a consistent viewBox; serving glass comes from the data.
+const glassPaths = {
+  plastic: '<path d="M14 6h20l-1.5 34a2 2 0 0 1-2 2h-13a2 2 0 0 1-2-2L14 6Z"/><rect x="19" y="12" width="9" height="9" rx="1.5" transform="rotate(12 23.5 16.5)"/><rect x="20" y="26" width="9" height="9" rx="1.5" transform="rotate(-12 24.5 30.5)"/>',
+  cocktail: '<path d="M7 8h34L24 26 7 8ZM24 26v14M15 41h18M12 13h24"/>',
+  rocks: '<path d="M9 16h30l-1.5 23a2 2 0 0 1-2 2h-23a2 2 0 0 1-2-2L9 16Z"/><rect x="14" y="23" width="9" height="9" rx="1.5" transform="rotate(-12 18.5 27.5)"/><rect x="26" y="27" width="8" height="8" rx="1.5" transform="rotate(12 30 31)"/>'
 };
+const glassIcons = Object.fromEntries(Object.entries(glassPaths).map(([key, path]) => [key,
+  `<svg class="glass-svg" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">${path}</svg>`
+]));
+function getGlassType(cocktail) { return cocktail.glassType || 'plastic'; }
 
-function getGlassType(cocktail) {
-  const method = cocktail.method || '';
-  const style = cocktail.style || '';
-  const name = cocktail.name || '';
+// Validate once on loading; escape only at the HTML rendering boundary.
+function readCocktails(data) {
+  if (!Array.isArray(data.cocktails)) throw new Error('cocktails must be an array');
+  const ids = new Set();
+  return data.cocktails.map(c => {
+    if (!c || typeof c.id !== 'string' || !/^[A-Z]+-\d+$/.test(c.id) || ids.has(c.id)) {
+      throw new Error('Missing or duplicate cocktail ID');
+    }
+    ids.add(c.id);
+    for (const key of ['name', 'description', 'base', 'style', 'category']) {
+      if (typeof c[key] !== 'string') throw new Error(`${c.id}: invalid ${key}`);
+    }
+    for (const [key, max] of [['abv', 100], ['sweetness', 5], ['sourness', 5]]) {
+      if (!Number.isFinite(c[key]) || c[key] < 0 || c[key] > max) throw new Error(`${c.id}: invalid ${key}`);
+    }
+    if (!Array.isArray(c.ingredients) || !c.ingredients.length || c.ingredients.some(i => !i || typeof i.item !== 'string' || typeof i.amount !== 'string')) {
+      throw new Error(`${c.id}: invalid ingredients`);
+    }
+    if (!Object.hasOwn(glassIcons, c.glassType)) throw new Error(`${c.id}: invalid glassType`);
+    if (typeof c.featured !== 'boolean') throw new Error(`${c.id}: invalid featured`);
+    return {...c, recipeNote: c.recipeNote || '', archiveReason: c.archiveReason || ''};
+  });
+}
 
-  if (method.includes('온더락')) {
-    return 'rocks';
-  }
-  if (style.includes('롱드링크') || name.includes('토닉') || name.includes('피즈') || name.includes('콜린스') || name.includes('소다') || name.includes('크러시') || name.includes('옥보단') || name.includes('아이스티') || name.includes('뮬')) {
-    return 'highball';
-  }
-  return 'cocktail';
+function escapeHtml(value) {
+  return String(value).replace(/[&<>"']/g, char => ({'&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;'}[char]));
+}
+
+function displayCocktail(c) {
+  const result = {...c};
+  for (const key of ['id', 'name', 'description', 'base', 'style', 'recipeNote', 'archiveReason']) result[key] = escapeHtml(c[key] ?? '');
+  result.ingredients = c.ingredients.map(i => ({item: escapeHtml(i.item), amount: escapeHtml(i.amount)}));
+  return result;
+}
+
+function abvClassFor(abv) {
+  return abv <= 10 ? 'abv-light' : abv <= 20 ? 'abv-medium' : 'abv-strong';
 }
 
 // DOM Elements
@@ -84,8 +74,6 @@ const elements = {
   cocktailGrid: document.getElementById('cocktailGrid'),
   resultsCount: document.getElementById('resultsCount'),
   emptyState: document.getElementById('emptyState'),
-  searchInput: document.getElementById('searchInput'),
-  clearSearch: document.getElementById('clearSearch'),
   categoryTabs: document.getElementById('categoryTabs'),
   btnFilterToggle: document.getElementById('btnFilterToggle'),
   filterPanel: document.getElementById('filterPanel'),
@@ -104,42 +92,39 @@ const elements = {
 async function initApp() {
   setupEventListeners();
   await fetchCocktailData();
-  renderApp();
+  if (history.state?.cocktailDetailId) openDetailModal(history.state.cocktailDetailId, false);
 }
 
 // Fetch Cocktails JSON (with cache busting)
 async function fetchCocktailData() {
+  state.loadError = false;
+  elements.resultsCount.textContent = '칵테일 불러오는 중...';
+  document.getElementById('loadError').hidden = true;
   try {
     const res = await fetch('cocktails.json?t=' + Date.now());
     if (!res.ok) throw new Error('Network response was not ok');
     const data = await res.json();
-    state.cocktails = (data.cocktails || []).map(c => ({
-      ...c,
-      style: c.style || '',
-      featured: isFeaturedCocktail(c)
-    }));
+    state.cocktails = readCocktails(data);
   } catch (err) {
     console.error('Failed to load cocktails data:', err);
-    elements.resultsCount.textContent = '데이터를 불러오지 못했습니다.';
+    state.loadError = true;
   }
+  renderApp();
 }
 
 // Event Listeners
 function setupEventListeners() {
-  // Search
-  elements.searchInput.addEventListener('input', (e) => {
-    state.searchQuery = e.target.value.trim().toLowerCase();
-    elements.clearSearch.classList.toggle('active', state.searchQuery.length > 0);
-    renderApp();
+  elements.detailModal.addEventListener('cancel', (event) => {
+    event.preventDefault();
+    closeModal(elements.detailModal);
   });
-
-  elements.clearSearch.addEventListener('click', () => {
-    elements.searchInput.value = '';
-    state.searchQuery = '';
-    elements.clearSearch.classList.remove('active');
-    renderApp();
+  window.addEventListener('popstate', (event) => {
+    detailBackPending = false;
+    const id = event.state?.cocktailDetailId;
+    if (id) openDetailModal(id, false);
+    else closeModal(elements.detailModal, true);
   });
-
+  document.getElementById('btnRetry').addEventListener('click', fetchCocktailData);
   // Category Tabs
   elements.categoryTabs.addEventListener('click', (e) => {
     const tab = e.target.closest('.cat-tab');
@@ -153,7 +138,9 @@ function setupEventListeners() {
 
   // Filter Toggle
   elements.btnFilterToggle.addEventListener('click', () => {
-    elements.filterPanel.classList.toggle('open');
+    const expanded = elements.filterPanel.classList.toggle('open');
+    elements.filterPanel.inert = !expanded;
+    elements.btnFilterToggle.setAttribute('aria-expanded', String(expanded));
     elements.btnFilterToggle.classList.toggle('active');
   });
 
@@ -166,13 +153,21 @@ function setupEventListeners() {
   elements.btnResetFilters.addEventListener('click', resetFilters);
   elements.btnEmptyReset.addEventListener('click', () => {
     resetFilters();
-    elements.searchInput.value = '';
-    state.searchQuery = '';
-    elements.clearSearch.classList.remove('active');
     document.querySelectorAll('.cat-tab').forEach(t => t.classList.remove('active'));
-    document.querySelector('.cat-tab[data-cat="featured"]').classList.add('active');
-    state.activeCategory = 'featured';
+    document.querySelector('.cat-tab[data-cat="all"]').classList.add('active');
+    state.activeCategory = 'all';
     renderApp();
+  });
+
+  document.addEventListener('keydown', (e) => {
+    if (!elements.detailModal.classList.contains('open')) return;
+    if (e.key === 'Escape') closeModal(elements.detailModal);
+    if (e.key === 'Tab') {
+      const buttons = [...elements.detailModal.querySelectorAll('button')];
+      const first = buttons[0], last = buttons[buttons.length - 1];
+      if (e.shiftKey && document.activeElement === first) { e.preventDefault(); last.focus(); }
+      else if (!e.shiftKey && document.activeElement === last) { e.preventDefault(); first.focus(); }
+    }
   });
 
   // Modals Close on backdrop or button
@@ -216,7 +211,7 @@ function getFilteredCocktails() {
     if (state.activeCategory === 'featured') {
       if (!c.featured) return false;
     } else if (state.activeCategory !== 'all') {
-      const isMultiSpirit = (c.id === 'MIX-001' || c.category === 'cocktail') &&
+      const isMultiSpirit = c.category === 'cocktail' &&
         ['gin', 'vodka', 'rum', 'tequila'].includes(state.activeCategory);
       if (c.category !== state.activeCategory && !isMultiSpirit) {
         return false;
@@ -228,49 +223,36 @@ function getFilteredCocktails() {
     if (state.activeAbv === 'medium' && (c.abv <= 10 || c.abv > 20)) return false;
     if (state.activeAbv === 'strong' && c.abv <= 20) return false;
 
-    // Style match ('롱드링크' or '숏')
+    // Style match ('롱드링크' or '숏드링크')
     if (state.activeStyle === 'long' && !c.style.includes('롱드링크')) return false;
-    if (state.activeStyle === 'short' && !c.style.includes('숏')) return false;
+    if (state.activeStyle === 'short' && !c.style.includes('숏드링크')) return false;
 
     // Taste match
     if (state.activeTaste === 'sweet' && c.sweetness < 3) return false;
     if (state.activeTaste === 'sour' && c.sourness < 3) return false;
     if (state.activeTaste === 'dry' && c.sweetness > 2) return false;
 
-    // Search query match (name, description, base, ingredients)
-    if (state.searchQuery) {
-      const q = state.searchQuery;
-      const ingText = c.ingredients.map(i => i.item).join(' ').toLowerCase();
-      const inSearch = c.name.toLowerCase().includes(q) ||
-                       c.description.toLowerCase().includes(q) ||
-                       c.base.toLowerCase().includes(q) ||
-                       ingText.includes(q);
-      if (!inSearch) return false;
-    }
-
     return true;
   });
-
-  // In default featured view, sort cocktails exactly by the curated spirit-base order
-  if (state.activeCategory === 'featured' && !state.searchQuery && state.activeAbv === 'all' && state.activeStyle === 'all' && state.activeTaste === 'all') {
-    list.sort((a, b) => {
-      const idxA = FEATURED_NAMES.findIndex(fn => fn.replace(/\s+/g, '') === (a.name || '').replace(/\s+/g, ''));
-      const idxB = FEATURED_NAMES.findIndex(fn => fn.replace(/\s+/g, '') === (b.name || '').replace(/\s+/g, ''));
-      return (idxA >= 0 ? idxA : 99) - (idxB >= 0 ? idxB : 99);
-    });
-  }
 
   return list;
 }
 
 // Render Application View
 function renderApp() {
+  document.getElementById('loadError').hidden = !state.loadError;
+  if (state.loadError) {
+    elements.resultsCount.textContent = '데이터를 불러오지 못했습니다.';
+    elements.cocktailGrid.innerHTML = '';
+    elements.emptyState.classList.add('hidden');
+    return;
+  }
   const filtered = getFilteredCocktails();
   
-  if (state.activeCategory === 'featured' && !state.searchQuery && state.activeAbv === 'all' && state.activeStyle === 'all' && state.activeTaste === 'all') {
+  if (state.activeCategory === 'featured' && state.activeAbv === 'all' && state.activeStyle === 'all' && state.activeTaste === 'all') {
     elements.resultsCount.textContent = `추천 칵테일 (${filtered.length}종)`;
   } else {
-    elements.resultsCount.textContent = `총 ${filtered.length}개의 칵테일`;
+    elements.resultsCount.textContent = `${isBarPage ? '보관 레시피' : '파티 메뉴'} · ${filtered.length}종`;
   }
 
   if (filtered.length === 0) {
@@ -284,6 +266,9 @@ function renderApp() {
 
   // Attach card event listeners
   elements.cocktailGrid.querySelectorAll('.cocktail-card').forEach(card => {
+    card.addEventListener('keydown', (e) => {
+      if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); openDetailModal(card.dataset.id); }
+    });
     card.addEventListener('click', () => {
       const id = card.dataset.id;
       openDetailModal(id);
@@ -293,12 +278,11 @@ function renderApp() {
 
 // Generate Card HTML
 function createCocktailCardHtml(c) {
+  c = displayCocktail(c);
   const glass = getGlassType(c);
 
   // ABV Badge Class
-  let abvClass = 'abv-medium';
-  if (c.abv <= 10) abvClass = 'abv-light';
-  else if (c.abv >= 21) abvClass = 'abv-strong';
+  const abvClass = abvClassFor(c.abv);
 
   // Taste dots
   const sweetDots = Array.from({ length: 5 }, (_, i) => 
@@ -309,11 +293,7 @@ function createCocktailCardHtml(c) {
     `<span class="meter-dot ${i < c.sourness ? 'filled sour' : ''}"></span>`
   ).join('');
 
-  // Fallback image / glass icon
-  const visualContent = `
-    <img src="${c.image}" alt="${c.name}" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';" loading="lazy">
-    <div style="display:none;" class="svg-fallback-wrap">${glassIcons[glass]}</div>
-  `;
+  const visualContent = glassIcons[glass];
 
   // Top header: Only show '추천' tag if featured, otherwise blank
   const topTagHtml = c.featured 
@@ -321,23 +301,16 @@ function createCocktailCardHtml(c) {
     : ``;
 
   return `
-    <article class="cocktail-card" data-id="${c.id}">
-      <div class="card-top">
-        <div class="card-lead-tag">
-          ${topTagHtml}
-        </div>
-        <div class="card-tags">
-          <span class="abv-badge ${abvClass}">${c.abvText}</span>
-        </div>
-      </div>
-
+    <article class="cocktail-card" data-id="${c.id}" tabindex="0" role="button" aria-label="${c.name} 레시피 보기">
       <div class="card-main">
         <div class="cocktail-visual">
           ${visualContent}
         </div>
         <div class="cocktail-info">
-          <h3 class="cocktail-name">${c.name}</h3>
-          <div class="cocktail-meta">${c.base} &bull; ${c.style}</div>
+          <div class="card-title-row">
+            <h3 class="cocktail-name">${c.name}</h3>
+            ${topTagHtml}
+          </div>
           <p class="cocktail-desc-preview">${c.description}</p>
         </div>
       </div>
@@ -351,22 +324,26 @@ function createCocktailCardHtml(c) {
           <span class="meter-label">산미</span>
           <div class="meter-dots">${sourDots}</div>
         </div>
+        <span class="abv-badge ${abvClass}">ALC ${c.abv}%</span>
       </div>
     </article>
   `;
 }
 
 // Detail Modal
-function openDetailModal(id) {
-  const c = state.cocktails.find(item => item.id === id);
-  if (!c) return;
+function openDetailModal(id, addHistory = true) {
+  if (detailBackPending) return;
+  const cocktail = state.cocktails.find(item => item.id === id);
+  if (!cocktail) return;
+  const c = displayCocktail(cocktail);
 
+  if (addHistory && history.state?.cocktailDetailId !== id) {
+    history.pushState({...history.state, cocktailDetailId: id}, '', location.href);
+  }
   state.activeDetailId = id;
   const glass = getGlassType(c);
 
-  let abvClass = 'abv-medium';
-  if (c.abv <= 10) abvClass = 'abv-light';
-  else if (c.abv >= 21) abvClass = 'abv-strong';
+  const abvClass = abvClassFor(c.abv);
 
   const sweetPct = (c.sweetness / 5) * 100;
   const sourPct = (c.sourness / 5) * 100;
@@ -378,13 +355,10 @@ function openDetailModal(id) {
     </li>
   `).join('');
 
-  const visualContent = `
-    <img src="${c.image}" alt="${c.name}" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
-    <div style="display:none;" class="svg-fallback-wrap">${glassIcons[glass]}</div>
-  `;
+  const visualContent = glassIcons[glass];
 
   const leadBadgeHtml = c.featured 
-    ? `<span class="featured-tag modal-tag">인기 추천</span>` 
+    ? `<span class="featured-tag modal-tag">파티 추천</span>` 
     : ``;
 
   elements.modalDetailContent.innerHTML = `
@@ -398,13 +372,16 @@ function openDetailModal(id) {
         <div class="detail-tags">
           <span class="tag-pill">${c.base}</span>
           <span class="tag-pill">${c.style}</span>
-          <span class="tag-pill abv-badge ${abvClass}">${c.abvText}</span>
+          <span class="tag-pill abv-badge ${abvClass}">ALC ${c.abv}%</span>
         </div>
       </div>
     </div>
 
     <div class="detail-desc-box">
       ${c.description}
+      ${c.recipeNote ? `<p class="recipe-note">${c.recipeNote}</p>` : ''}
+      ${isBarPage ? `<p class="recipe-note">보관 사유: ${c.archiveReason}</p>` : ''}
+      <p class="recipe-note">도수는 기존 레시피의 추정치이며, 실제 제품과 얼음 희석량에 따라 달라집니다.</p>
     </div>
 
     <h4 class="detail-section-title">맛 프로필 (Taste Profile)</h4>
@@ -435,22 +412,6 @@ function openDetailModal(id) {
       ${ingredientsHtml}
     </ul>
 
-    <h4 class="detail-section-title">제조 및 가니시</h4>
-    <div class="info-data-grid">
-      <div class="info-data-card">
-        <span class="info-data-label">제조 방식</span>
-        <span class="info-data-val">${c.method}</span>
-      </div>
-      <div class="info-data-card">
-        <span class="info-data-label">추천 글래스</span>
-        <span class="info-data-val">${c.glass}</span>
-      </div>
-      <div class="info-data-card">
-        <span class="info-data-label">가니시</span>
-        <span class="info-data-val">${c.garnish || '없음'}</span>
-      </div>
-    </div>
-
     <div class="detail-actions">
       <button id="btnDetailClose" class="btn-action">
         확인 및 닫기
@@ -467,15 +428,44 @@ function openDetailModal(id) {
 
 // Modal Helpers
 function openModal(modalEl) {
+  if (!lockedScrollPosition) {
+    previousFocus = document.activeElement;
+    lockedScrollPosition = {x: window.scrollX, y: window.scrollY};
+    document.body.style.setProperty('--locked-scroll-top', `-${lockedScrollPosition.y}px`);
+    document.documentElement.classList.add('modal-scroll-locked');
+    document.body.classList.add('modal-scroll-locked');
+  }
+  if (!modalEl.open) modalEl.showModal();
   modalEl.classList.add('open');
   modalEl.setAttribute('aria-hidden', 'false');
-  document.body.style.overflow = 'hidden';
+  document.querySelector('header').inert = true;
+  document.querySelector('main').inert = true;
+  elements.modalDetailContent.scrollTop = 0;
+  elements.btnCloseDetail.focus({preventScroll: true});
 }
 
-function closeModal(modalEl) {
+function closeModal(modalEl, fromHistory = false) {
+  if (!fromHistory && history.state?.cocktailDetailId) {
+    if (!detailBackPending) {
+      detailBackPending = true;
+      history.back();
+    }
+    return;
+  }
+  if (!modalEl.classList.contains('open')) return;
   modalEl.classList.remove('open');
+  modalEl.close();
   modalEl.setAttribute('aria-hidden', 'true');
-  document.body.style.overflow = '';
+  document.documentElement.classList.remove('modal-scroll-locked');
+  document.body.classList.remove('modal-scroll-locked');
+  document.body.style.removeProperty('--locked-scroll-top');
+  document.querySelector('header').inert = false;
+  document.querySelector('main').inert = false;
+  previousFocus?.focus({preventScroll: true});
+  if (lockedScrollPosition) {
+    window.scrollTo({left: lockedScrollPosition.x, top: lockedScrollPosition.y, behavior: 'instant'});
+    lockedScrollPosition = null;
+  }
   if (modalEl === elements.detailModal) {
     state.activeDetailId = null;
   }

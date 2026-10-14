@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Bar — 보관 레시피</title>
+  <meta name="robots" content="noindex, nofollow">
+  <meta name="description" content="프라이빗 칵테일 파티를 위한 모바일 칵테일 메뉴판입니다. 베이스별 칵테일 레시피, 도수, 플레이버 프로필을 확인하세요.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&family=Noto+Sans+KR:wght@300;400;500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../style.css?v=6">
+</head>
+<body data-page="bar">
+  <!-- Ambient background lighting -->
+  <div class="ambient-glow glow-1"></div>
+  <div class="ambient-glow glow-2"></div>
+
+  <!-- Header -->
+  <header class="site-header">
+    <div class="header-inner">
+      <div class="brand">
+        <span class="sub-title">PRIVATE BAR MENU</span>
+        <h1 class="main-title">BAR ARCHIVE</h1>
+      </div>
+
+    </div>
+
+    <div class="filter-controls">
+      <button id="btnFilterToggle" class="filter-toggle-btn" aria-label="필터 토글" aria-expanded="false" aria-controls="filterPanel">
+        <svg class="svg-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <polygon points="22 3 2 3 10 12.46 10 19 14 21 14 12.46 22 3"></polygon>
+        </svg>
+        <span>필터</span>
+      </button>
+    </div>
+
+    <!-- Expanded Filter Panel -->
+    <div id="filterPanel" class="filter-panel" inert>
+      <div class="filter-row">
+        <span class="filter-label">알코올 도수</span>
+        <div class="chip-group" id="abvChips">
+          <button class="filter-chip active" data-abv="all">전체</button>
+          <button class="filter-chip" data-abv="light">가벼움 (&le; 10%)</button>
+          <button class="filter-chip" data-abv="medium">중간 (11~20%)</button>
+          <button class="filter-chip" data-abv="strong">진함 (&ge; 21%)</button>
+        </div>
+      </div>
+
+      <div class="filter-row">
+        <span class="filter-label">스타일</span>
+        <div class="chip-group" id="styleChips">
+          <button class="filter-chip active" data-style="all">전체</button>
+          <button class="filter-chip" data-style="long">롱드링크</button>
+          <button class="filter-chip" data-style="short">숏드링크</button>
+        </div>
+      </div>
+
+      <div class="filter-row">
+        <span class="filter-label">맛 선호도</span>
+        <div class="chip-group" id="tasteChips">
+          <button class="filter-chip active" data-taste="all">전체</button>
+          <button class="filter-chip" data-taste="sweet">달콤함 선호 (단맛 &ge; 3)</button>
+          <button class="filter-chip" data-taste="sour">상큼함 선호 (산미 &ge; 3)</button>
+          <button class="filter-chip" data-taste="dry">덜 달콤함 (단맛 &le; 2)</button>
+        </div>
+      </div>
+
+      <div class="filter-reset-wrap">
+        <button id="btnResetFilters" class="reset-filters-btn">상세 필터 초기화</button>
+      </div>
+    </div>
+
+    <!-- Base Spirit Category Tabs (Horizontal Scrollable) -->
+    <nav class="category-tabs" id="categoryTabs">
+      
+      <button class="cat-tab active" data-cat="all">전체</button>
+      <button class="cat-tab" data-cat="gin">진</button>
+      <button class="cat-tab" data-cat="vodka">보드카</button>
+      <button class="cat-tab" data-cat="rum">럼</button>
+      <button class="cat-tab" data-cat="tequila">데킬라</button>
+      <button class="cat-tab" data-cat="whisky">위스키</button>
+      <button class="cat-tab" data-cat="liqueur">리큐르</button>
+      <button class="cat-tab" data-cat="dessert">디저트</button>
+    </nav>
+  </header>
+
+  <!-- Main Content: Cocktail Card Grid -->
+  <main class="main-container">
+    <p class="archive-intro">공개 메뉴에서 제외한 레시피 보관함입니다. 라이 위스키·중복 조합·기존 하이볼 배합을 보관합니다.</p><a class="menu-link" href="../">파티 메뉴로 돌아가기</a>
+    <div id="loadError" class="empty-state" role="alert" hidden><h3>메뉴를 불러오지 못했습니다</h3><p>연결 상태를 확인하고 다시 시도해주세요.</p><button id="btnRetry" class="btn-pill">다시 시도</button></div>
+    <div class="list-summary">
+      <span id="resultsCount">칵테일 불러오는 중...</span>
+      <span class="summary-tip">카드를 터치하면 레시피를 볼 수 있습니다</span>
+    </div>
+
+    <div id="cocktailGrid" class="cocktail-grid">
+      <!-- Cards dynamically generated via JavaScript -->
+    </div>
+
+    <!-- Empty Results -->
+    <div id="emptyState" class="empty-state hidden">
+      <svg class="svg-icon state-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+        <circle cx="12" cy="12" r="10"></circle>
+        <line x1="8" y1="12" x2="16" y2="12"></line>
+      </svg>
+      <h3>일치하는 칵테일이 없습니다</h3>
+      <p>카테고리나 필터 조건을 변경해보세요.</p>
+      <button id="btnEmptyReset" class="btn-pill">전체 메뉴 보기</button>
+    </div>
+  </main>
+
+
+
+  <!-- Detail Modal / Bottom Sheet -->
+  <dialog id="detailModal" class="modal-backdrop" aria-hidden="true" aria-labelledby="modalTitle">
+    <div class="modal-sheet" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+      <div class="sheet-grabber"></div>
+      <button class="modal-close-btn" id="btnCloseDetail" aria-label="닫기">&times;</button>
+      
+      <div class="modal-body" id="modalDetailContent">
+        <!-- Rendered dynamically -->
+      </div>
+    </div>
+  </dialog>
+
+
+
+
+
+  <!-- Toast Notification -->
+  <div id="toast" class="toast-message" role="alert"></div>
+
+  <footer class="site-footer">
+    <p>PRIVATE COCKTAIL PARTY ARCHIVE</p>
+    <p class="footer-sub">모바일 웹 브라우저 최적화 &bull; 정적 호스팅</p>
+  </footer>
+
+  <script src="../app.js?v=6"></script>
+</body>
+</html>

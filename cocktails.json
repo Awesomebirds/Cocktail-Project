@@ -54,7 +54,7 @@
       "categoryName": "진",
       "base": "진",
       "style": "롱드링크",
-      "glass": "하이볼 글래스",
+      "glass": "일반 플라스틱잔",
       "ingredients": [
         {
           "item": "진",
@@ -72,7 +72,10 @@
       "abv": 12,
       "sweetness": 2,
       "sourness": 1,
-      "image": "images/GIN-001.jpg",
+      "glassType": "plastic",
+      "public": true,
+      "archiveReason": "",
+      "recipeNote": "",
       "featured": true
     },
     {
@@ -82,7 +85,7 @@
       "categoryName": "진",
       "base": "진",
       "style": "롱드링크",
-      "glass": "하이볼 글래스",
+      "glass": "일반 플라스틱잔",
       "ingredients": [
         {
           "item": "진",
@@ -104,7 +107,10 @@
       "abv": 11,
       "sweetness": 1,
       "sourness": 4,
-      "image": "images/GIN-002.jpg",
+      "glassType": "plastic",
+      "public": true,
+      "archiveReason": "",
+      "recipeNote": "",
       "featured": false
     },
     {
@@ -113,8 +119,8 @@
       "category": "gin",
       "categoryName": "진",
       "base": "진",
-      "style": "숏",
-      "glass": "칵테일 글래스",
+      "style": "숏드링크",
+      "glass": "칵테일글라스",
       "ingredients": [
         {
           "item": "진",
@@ -136,7 +142,10 @@
       "abv": 21,
       "sweetness": 2,
       "sourness": 5,
-      "image": "images/GIN-003.jpg",
+      "glassType": "cocktail",
+      "public": true,
+      "archiveReason": "",
+      "recipeNote": "프레시 라임 버전. 라임 코디얼 대신 라임주스와 심플시럽을 사용합니다.",
       "featured": false
     },
     {
@@ -146,7 +155,7 @@
       "categoryName": "진",
       "base": "진",
       "style": "롱드링크",
-      "glass": "하이볼 글래스",
+      "glass": "일반 플라스틱잔",
       "ingredients": [
         {
           "item": "진",
@@ -172,43 +181,10 @@
       "abv": 9,
       "sweetness": 3,
       "sourness": 3,
-      "image": "images/GIN-004.jpg",
-      "featured": false
-    },
-    {
-      "id": "GIN-005",
-      "name": "진 피즈",
-      "category": "gin",
-      "categoryName": "진",
-      "base": "진",
-      "style": "롱드링크",
-      "glass": "하이볼 글래스",
-      "ingredients": [
-        {
-          "item": "진",
-          "amount": "45 ml"
-        },
-        {
-          "item": "레몬주스",
-          "amount": "25 ml"
-        },
-        {
-          "item": "심플시럽",
-          "amount": "15 ml"
-        },
-        {
-          "item": "탄산수",
-          "amount": "60 ml"
-        }
-      ],
-      "method": "진·레몬·시럽을 쉐이크한 뒤 탄산수 추가",
-      "garnish": "레몬 필",
-      "description": "콜린스보다 조금 짧고 진하게 즐기는 상쾌한 진 사워.",
-      "abvText": "약 10%",
-      "abv": 10,
-      "sweetness": 3,
-      "sourness": 3,
-      "image": "images/GIN-005.jpg",
+      "glassType": "plastic",
+      "public": true,
+      "archiveReason": "",
+      "recipeNote": "",
       "featured": false
     },
     {
@@ -217,8 +193,8 @@
       "category": "gin",
       "categoryName": "진",
       "base": "진",
-      "style": "숏",
-      "glass": "칵테일 글래스",
+      "style": "숏드링크",
+      "glass": "칵테일글라스",
       "ingredients": [
         {
           "item": "진",
@@ -240,103 +216,10 @@
       "abv": 27,
       "sweetness": 2,
       "sourness": 4,
-      "image": "images/GIN-006.jpg",
-      "featured": false
-    },
-    {
-      "id": "GIN-007",
-      "name": "진 벅",
-      "category": "gin",
-      "categoryName": "진",
-      "base": "진",
-      "style": "롱드링크",
-      "glass": "하이볼 글래스",
-      "ingredients": [
-        {
-          "item": "진",
-          "amount": "45 ml"
-        },
-        {
-          "item": "라임주스",
-          "amount": "15 ml"
-        },
-        {
-          "item": "진저에일",
-          "amount": "120 ml"
-        }
-      ],
-      "method": "얼음을 채운 잔에 빌드",
-      "garnish": "라임 웨지",
-      "description": "진저에일의 달콤한 향과 라임이 진을 부드럽게 만들어주는 롱드링크.",
-      "abvText": "약 10%",
-      "abv": 10,
-      "sweetness": 3,
-      "sourness": 2,
-      "image": "images/GIN-007.jpg",
-      "featured": false
-    },
-    {
-      "id": "GIN-008",
-      "name": "진 데이지",
-      "category": "gin",
-      "categoryName": "진",
-      "base": "진",
-      "style": "롱드링크",
-      "glass": "하이볼 글래스",
-      "ingredients": [
-        {
-          "item": "진",
-          "amount": "45 ml"
-        },
-        {
-          "item": "레몬주스",
-          "amount": "20 ml"
-        },
-        {
-          "item": "그레나딘",
-          "amount": "10 ml"
-        },
-        {
-          "item": "탄산수",
-          "amount": "70 ml"
-        }
-      ],
-      "method": "진·레몬·그레나딘을 쉐이크한 뒤 탄산수 추가",
-      "garnish": "오렌지 슬라이스 + 체리",
-      "description": "레몬과 석류 계열의 달콤새콤함에 탄산을 더한 화사한 칵테일.",
-      "abvText": "약 11%",
-      "abv": 11,
-      "sweetness": 3,
-      "sourness": 3,
-      "image": "images/GIN-008.jpg",
-      "featured": false
-    },
-    {
-      "id": "VOD-001",
-      "name": "보드카 토닉",
-      "category": "vodka",
-      "categoryName": "보드카",
-      "base": "보드카",
-      "style": "롱드링크",
-      "glass": "하이볼 글래스",
-      "ingredients": [
-        {
-          "item": "보드카",
-          "amount": "45 ml"
-        },
-        {
-          "item": "토닉워터",
-          "amount": "120 ml"
-        }
-      ],
-      "method": "얼음을 채운 잔에 빌드",
-      "garnish": "라임 웨지",
-      "description": "보드카의 깨끗함과 토닉의 쌉쌀함을 단순하게 즐기는 칵테일.",
-      "abvText": "약 10%",
-      "abv": 10,
-      "sweetness": 2,
-      "sourness": 1,
-      "image": "images/VOD-001.jpg",
+      "glassType": "cocktail",
+      "public": true,
+      "archiveReason": "",
+      "recipeNote": "",
       "featured": false
     },
     {
@@ -346,7 +229,7 @@
       "categoryName": "보드카",
       "base": "보드카",
       "style": "롱드링크",
-      "glass": "하이볼 글래스",
+      "glass": "일반 플라스틱잔",
       "ingredients": [
         {
           "item": "보드카",
@@ -364,63 +247,10 @@
       "abv": 10,
       "sweetness": 3,
       "sourness": 1,
-      "image": "images/VOD-002.jpg",
-      "featured": true
-    },
-    {
-      "id": "VOD-003",
-      "name": "케이프 코더",
-      "category": "vodka",
-      "categoryName": "보드카",
-      "base": "보드카",
-      "style": "롱드링크",
-      "glass": "하이볼 글래스",
-      "ingredients": [
-        {
-          "item": "보드카",
-          "amount": "45 ml"
-        },
-        {
-          "item": "크랜베리주스",
-          "amount": "120 ml"
-        }
-      ],
-      "method": "얼음을 채운 잔에 빌드",
-      "garnish": "라임 웨지",
-      "description": "크랜베리의 새콤달콤한 맛이 보드카와 가볍게 어우러진다.",
-      "abvText": "약 10%",
-      "abv": 10,
-      "sweetness": 3,
-      "sourness": 3,
-      "image": "images/VOD-003.jpg",
-      "featured": false
-    },
-    {
-      "id": "VOD-004",
-      "name": "그레이하운드",
-      "category": "vodka",
-      "categoryName": "보드카",
-      "base": "보드카",
-      "style": "롱드링크",
-      "glass": "하이볼 글래스",
-      "ingredients": [
-        {
-          "item": "보드카",
-          "amount": "45 ml"
-        },
-        {
-          "item": "자몽주스",
-          "amount": "120 ml"
-        }
-      ],
-      "method": "얼음을 채운 잔에 빌드",
-      "garnish": "라임 웨지",
-      "description": "자몽의 씁쓸한 산미가 중심인 깔끔하고 드라이한 롱드링크.",
-      "abvText": "약 10%",
-      "abv": 10,
-      "sweetness": 2,
-      "sourness": 3,
-      "image": "images/VOD-004.jpg",
+      "glassType": "plastic",
+      "public": true,
+      "archiveReason": "",
+      "recipeNote": "",
       "featured": false
     },
     {
@@ -430,7 +260,7 @@
       "categoryName": "보드카",
       "base": "보드카",
       "style": "롱드링크",
-      "glass": "하이볼 글래스",
+      "glass": "일반 플라스틱잔",
       "ingredients": [
         {
           "item": "보드카",
@@ -452,8 +282,11 @@
       "abv": 9,
       "sweetness": 3,
       "sourness": 3,
-      "image": "images/VOD-005.jpg",
-      "featured": true
+      "glassType": "plastic",
+      "public": true,
+      "archiveReason": "",
+      "recipeNote": "",
+      "featured": false
     },
     {
       "id": "VOD-006",
@@ -462,7 +295,7 @@
       "categoryName": "보드카",
       "base": "보드카",
       "style": "롱드링크",
-      "glass": "하이볼 글래스",
+      "glass": "일반 플라스틱잔",
       "ingredients": [
         {
           "item": "보드카",
@@ -484,107 +317,10 @@
       "abv": 9,
       "sweetness": 4,
       "sourness": 2,
-      "image": "images/VOD-006.jpg",
-      "featured": true
-    },
-    {
-      "id": "VOD-007",
-      "name": "마드라스",
-      "category": "vodka",
-      "categoryName": "보드카",
-      "base": "보드카",
-      "style": "롱드링크",
-      "glass": "하이볼 글래스",
-      "ingredients": [
-        {
-          "item": "보드카",
-          "amount": "40 ml"
-        },
-        {
-          "item": "크랜베리주스",
-          "amount": "60 ml"
-        },
-        {
-          "item": "오렌지주스",
-          "amount": "60 ml"
-        }
-      ],
-      "method": "얼음을 채운 잔에 빌드",
-      "garnish": "오렌지 슬라이스",
-      "description": "오렌지와 크랜베리로 만들기 쉬운 과일 중심의 보드카 칵테일.",
-      "abvText": "약 9%",
-      "abv": 9,
-      "sweetness": 4,
-      "sourness": 2,
-      "image": "images/VOD-007.jpg",
-      "featured": false
-    },
-    {
-      "id": "VOD-008",
-      "name": "보드카 진저 라임",
-      "category": "vodka",
-      "categoryName": "보드카",
-      "base": "보드카",
-      "style": "롱드링크",
-      "glass": "하이볼 글래스",
-      "ingredients": [
-        {
-          "item": "보드카",
-          "amount": "45 ml"
-        },
-        {
-          "item": "라임주스",
-          "amount": "15 ml"
-        },
-        {
-          "item": "진저에일",
-          "amount": "120 ml"
-        }
-      ],
-      "method": "얼음을 채운 잔에 빌드",
-      "garnish": "라임 웨지",
-      "description": "뮬 계열의 느낌을 진저에일로 가볍게 구현한 상쾌한 칵테일.",
-      "abvText": "약 9%",
-      "abv": 9,
-      "sweetness": 3,
-      "sourness": 2,
-      "image": "images/VOD-008.jpg",
-      "featured": false
-    },
-    {
-      "id": "VOD-009",
-      "name": "보드카 콜린스",
-      "category": "vodka",
-      "categoryName": "보드카",
-      "base": "보드카",
-      "style": "롱드링크",
-      "glass": "하이볼 글래스",
-      "ingredients": [
-        {
-          "item": "보드카",
-          "amount": "45 ml"
-        },
-        {
-          "item": "레몬주스",
-          "amount": "25 ml"
-        },
-        {
-          "item": "심플시럽",
-          "amount": "15 ml"
-        },
-        {
-          "item": "탄산수",
-          "amount": "90 ml"
-        }
-      ],
-      "method": "보드카·레몬·시럽을 쉐이크한 뒤 탄산수 추가",
-      "garnish": "레몬 휠 + 체리",
-      "description": "깔끔한 보드카 베이스의 탄산 레모네이드 같은 칵테일.",
-      "abvText": "약 8%",
-      "abv": 8,
-      "sweetness": 3,
-      "sourness": 3,
-      "image": "images/VOD-009.jpg",
+      "glassType": "plastic",
+      "public": true,
+      "archiveReason": "",
+      "recipeNote": "",
       "featured": false
     },
     {
@@ -593,8 +329,8 @@
       "category": "vodka",
       "categoryName": "보드카",
       "base": "보드카",
-      "style": "숏",
-      "glass": "칵테일 글래스",
+      "style": "숏드링크",
+      "glass": "칵테일글라스",
       "ingredients": [
         {
           "item": "보드카",
@@ -616,7 +352,10 @@
       "abv": 22,
       "sweetness": 2,
       "sourness": 5,
-      "image": "images/VOD-010.jpg",
+      "glassType": "cocktail",
+      "public": true,
+      "archiveReason": "",
+      "recipeNote": "",
       "featured": false
     },
     {
@@ -625,8 +364,8 @@
       "category": "vodka",
       "categoryName": "보드카",
       "base": "보드카",
-      "style": "숏",
-      "glass": "칵테일 글래스",
+      "style": "숏드링크",
+      "glass": "칵테일글라스",
       "ingredients": [
         {
           "item": "보드카",
@@ -652,44 +391,11 @@
       "abv": 20,
       "sweetness": 3,
       "sourness": 4,
-      "image": "images/VOD-011.jpg",
+      "glassType": "cocktail",
+      "public": true,
+      "archiveReason": "",
+      "recipeNote": "",
       "featured": true
-    },
-    {
-      "id": "VOD-012",
-      "name": "레몬 드롭",
-      "category": "vodka",
-      "categoryName": "보드카",
-      "base": "보드카",
-      "style": "숏",
-      "glass": "칵테일 글래스",
-      "ingredients": [
-        {
-          "item": "보드카",
-          "amount": "40 ml"
-        },
-        {
-          "item": "코앵트로",
-          "amount": "20 ml"
-        },
-        {
-          "item": "레몬주스",
-          "amount": "20 ml"
-        },
-        {
-          "item": "심플시럽",
-          "amount": "10 ml"
-        }
-      ],
-      "method": "쉐이크 후 스트레인",
-      "garnish": "레몬 휠",
-      "description": "레몬캔디처럼 새콤달콤하지만 보드카의 힘도 분명한 칵테일.",
-      "abvText": "약 22%",
-      "abv": 22,
-      "sweetness": 4,
-      "sourness": 4,
-      "image": "images/VOD-012.jpg",
-      "featured": false
     },
     {
       "id": "VOD-013",
@@ -698,7 +404,7 @@
       "categoryName": "보드카",
       "base": "보드카",
       "style": "롱드링크",
-      "glass": "하이볼 글래스",
+      "glass": "일반 플라스틱잔",
       "ingredients": [
         {
           "item": "보드카",
@@ -724,71 +430,10 @@
       "abv": 7,
       "sweetness": 4,
       "sourness": 2,
-      "image": "images/VOD-013.jpg",
-      "featured": true
-    },
-    {
-      "id": "VOD-014",
-      "name": "우우",
-      "category": "vodka",
-      "categoryName": "보드카",
-      "base": "보드카",
-      "style": "롱드링크",
-      "glass": "하이볼 글래스",
-      "ingredients": [
-        {
-          "item": "보드카",
-          "amount": "30 ml"
-        },
-        {
-          "item": "피치 리큐르",
-          "amount": "30 ml"
-        },
-        {
-          "item": "크랜베리주스",
-          "amount": "90 ml"
-        }
-      ],
-      "method": "얼음을 채운 잔에 빌드",
-      "garnish": "라임 웨지",
-      "description": "복숭아와 크랜베리가 진하게 느껴지는 새콤달콤한 칵테일.",
-      "abvText": "약 11%",
-      "abv": 11,
-      "sweetness": 4,
-      "sourness": 3,
-      "image": "images/VOD-014.jpg",
-      "featured": false
-    },
-    {
-      "id": "VOD-015",
-      "name": "헤어리 네이블",
-      "category": "vodka",
-      "categoryName": "보드카",
-      "base": "보드카",
-      "style": "롱드링크",
-      "glass": "하이볼 글래스",
-      "ingredients": [
-        {
-          "item": "보드카",
-          "amount": "30 ml"
-        },
-        {
-          "item": "피치 리큐르",
-          "amount": "30 ml"
-        },
-        {
-          "item": "오렌지주스",
-          "amount": "100 ml"
-        }
-      ],
-      "method": "얼음을 채운 잔에 빌드",
-      "garnish": "오렌지 슬라이스",
-      "description": "퍼지 네이블에 보드카를 더해 도수를 올린 달콤한 오렌지 칵테일.",
-      "abvText": "약 10%",
-      "abv": 10,
-      "sweetness": 4,
-      "sourness": 1,
-      "image": "images/VOD-015.jpg",
+      "glassType": "plastic",
+      "public": true,
+      "archiveReason": "",
+      "recipeNote": "",
       "featured": false
     },
     {
@@ -798,7 +443,7 @@
       "categoryName": "보드카",
       "base": "보드카",
       "style": "롱드링크",
-      "glass": "하이볼 글래스",
+      "glass": "일반 플라스틱잔",
       "ingredients": [
         {
           "item": "보드카",
@@ -820,36 +465,11 @@
       "abv": 9,
       "sweetness": 3,
       "sourness": 3,
-      "image": "images/VOD-016.jpg",
+      "glassType": "plastic",
+      "public": true,
+      "archiveReason": "",
+      "recipeNote": "진저에일 버전. 클래식의 진저비어 대신 보유한 진저에일을 사용합니다.",
       "featured": true
-    },
-    {
-      "id": "RUM-001",
-      "name": "럼 앤 콕",
-      "category": "rum",
-      "categoryName": "럼",
-      "base": "화이트 럼",
-      "style": "롱드링크",
-      "glass": "하이볼 글래스",
-      "ingredients": [
-        {
-          "item": "화이트 럼",
-          "amount": "45 ml"
-        },
-        {
-          "item": "콜라",
-          "amount": "120 ml"
-        }
-      ],
-      "method": "얼음을 채운 잔에 빌드",
-      "garnish": "라임 웨지",
-      "description": "럼의 은은한 단맛과 콜라가 바로 이어지는 가장 편한 조합.",
-      "abvText": "약 10%",
-      "abv": 10,
-      "sweetness": 4,
-      "sourness": 1,
-      "image": "images/RUM-001.jpg",
-      "featured": false
     },
     {
       "id": "RUM-002",
@@ -858,7 +478,7 @@
       "categoryName": "럼",
       "base": "화이트 럼",
       "style": "롱드링크",
-      "glass": "하이볼 글래스",
+      "glass": "일반 플라스틱잔",
       "ingredients": [
         {
           "item": "화이트 럼",
@@ -880,8 +500,11 @@
       "abv": 9,
       "sweetness": 3,
       "sourness": 2,
-      "image": "images/RUM-002.jpg",
-      "featured": true
+      "glassType": "plastic",
+      "public": true,
+      "archiveReason": "",
+      "recipeNote": "",
+      "featured": false
     },
     {
       "id": "RUM-003",
@@ -889,8 +512,8 @@
       "category": "rum",
       "categoryName": "럼",
       "base": "화이트 럼",
-      "style": "숏",
-      "glass": "칵테일 글래스",
+      "style": "숏드링크",
+      "glass": "칵테일글라스",
       "ingredients": [
         {
           "item": "화이트 럼",
@@ -912,7 +535,10 @@
       "abv": 18,
       "sweetness": 3,
       "sourness": 5,
-      "image": "images/RUM-003.jpg",
+      "glassType": "cocktail",
+      "public": true,
+      "archiveReason": "",
+      "recipeNote": "",
       "featured": true
     },
     {
@@ -921,8 +547,8 @@
       "category": "rum",
       "categoryName": "럼",
       "base": "화이트 럼",
-      "style": "숏",
-      "glass": "칵테일 글래스",
+      "style": "숏드링크",
+      "glass": "칵테일글라스",
       "ingredients": [
         {
           "item": "화이트 럼",
@@ -944,183 +570,10 @@
       "abv": 20,
       "sweetness": 3,
       "sourness": 4,
-      "image": "images/RUM-004.jpg",
-      "featured": false
-    },
-    {
-      "id": "RUM-005",
-      "name": "럼 콜린스",
-      "category": "rum",
-      "categoryName": "럼",
-      "base": "화이트 럼",
-      "style": "롱드링크",
-      "glass": "하이볼 글래스",
-      "ingredients": [
-        {
-          "item": "화이트 럼",
-          "amount": "45 ml"
-        },
-        {
-          "item": "레몬주스",
-          "amount": "25 ml"
-        },
-        {
-          "item": "심플시럽",
-          "amount": "15 ml"
-        },
-        {
-          "item": "탄산수",
-          "amount": "90 ml"
-        }
-      ],
-      "method": "럼·레몬·시럽을 쉐이크한 뒤 탄산수 추가",
-      "garnish": "레몬 휠",
-      "description": "럼 베이스의 가볍고 새콤한 탄산 칵테일.",
-      "abvText": "약 8%",
-      "abv": 8,
-      "sweetness": 3,
-      "sourness": 3,
-      "image": "images/RUM-005.jpg",
-      "featured": false
-    },
-    {
-      "id": "RUM-006",
-      "name": "럼 진저",
-      "category": "rum",
-      "categoryName": "럼",
-      "base": "화이트 럼",
-      "style": "롱드링크",
-      "glass": "하이볼 글래스",
-      "ingredients": [
-        {
-          "item": "화이트 럼",
-          "amount": "45 ml"
-        },
-        {
-          "item": "진저에일",
-          "amount": "120 ml"
-        },
-        {
-          "item": "라임주스",
-          "amount": "10 ml"
-        }
-      ],
-      "method": "얼음을 채운 잔에 빌드",
-      "garnish": "라임 웨지",
-      "description": "럼과 진저에일의 달콤한 향에 라임을 더한 편한 롱드링크.",
-      "abvText": "약 10%",
-      "abv": 10,
-      "sweetness": 4,
-      "sourness": 2,
-      "image": "images/RUM-006.jpg",
-      "featured": false
-    },
-    {
-      "id": "RUM-007",
-      "name": "럼 토닉",
-      "category": "rum",
-      "categoryName": "럼",
-      "base": "화이트 럼",
-      "style": "롱드링크",
-      "glass": "하이볼 글래스",
-      "ingredients": [
-        {
-          "item": "화이트 럼",
-          "amount": "45 ml"
-        },
-        {
-          "item": "토닉워터",
-          "amount": "120 ml"
-        },
-        {
-          "item": "라임주스",
-          "amount": "10 ml"
-        }
-      ],
-      "method": "얼음을 채운 잔에 빌드",
-      "garnish": "라임 웨지",
-      "description": "화이트럼을 가볍고 드라이하게 즐기는 토닉 하이볼.",
-      "abvText": "약 10%",
-      "abv": 10,
-      "sweetness": 2,
-      "sourness": 2,
-      "image": "images/RUM-007.jpg",
-      "featured": false
-    },
-    {
-      "id": "RUM-008",
-      "name": "코코넛 다이키리",
-      "category": "rum",
-      "categoryName": "럼",
-      "base": "화이트 럼",
-      "style": "숏",
-      "glass": "칵테일 글래스",
-      "ingredients": [
-        {
-          "item": "화이트 럼",
-          "amount": "35 ml"
-        },
-        {
-          "item": "코코넛 리큐르",
-          "amount": "20 ml"
-        },
-        {
-          "item": "라임주스",
-          "amount": "25 ml"
-        },
-        {
-          "item": "심플시럽",
-          "amount": "5 ml"
-        }
-      ],
-      "method": "쉐이크 후 스트레인",
-      "garnish": "라임 휠",
-      "description": "다이키리에 코코넛 향을 더한 달콤하고 트로피컬한 변형.",
-      "abvText": "약 20%",
-      "abv": 20,
-      "sweetness": 3,
-      "sourness": 4,
-      "image": "images/RUM-008.jpg",
-      "featured": false
-    },
-    {
-      "id": "RUM-009",
-      "name": "코코넛 럼 펀치",
-      "category": "rum",
-      "categoryName": "럼",
-      "base": "화이트 럼",
-      "style": "롱드링크",
-      "glass": "하이볼 글래스",
-      "ingredients": [
-        {
-          "item": "화이트 럼",
-          "amount": "30 ml"
-        },
-        {
-          "item": "코코넛 리큐르",
-          "amount": "20 ml"
-        },
-        {
-          "item": "파인애플주스",
-          "amount": "70 ml"
-        },
-        {
-          "item": "오렌지주스",
-          "amount": "40 ml"
-        },
-        {
-          "item": "그레나딘",
-          "amount": "5 ml"
-        }
-      ],
-      "method": "얼음을 채운 잔에 빌드",
-      "garnish": "파인애플 조각 + 체리",
-      "description": "파인애플과 코코넛이 중심인 부드럽고 달콤한 트로피컬 펀치.",
-      "abvText": "약 9%",
-      "abv": 9,
-      "sweetness": 5,
-      "sourness": 1,
-      "image": "images/RUM-009.jpg",
+      "glassType": "cocktail",
+      "public": true,
+      "archiveReason": "",
+      "recipeNote": "",
       "featured": false
     },
     {
@@ -1129,8 +582,8 @@
       "category": "tequila",
       "categoryName": "데킬라",
       "base": "데킬라",
-      "style": "숏",
-      "glass": "칵테일 글래스",
+      "style": "숏드링크",
+      "glass": "칵테일글라스",
       "ingredients": [
         {
           "item": "데킬라",
@@ -1152,7 +605,10 @@
       "abv": 25,
       "sweetness": 2,
       "sourness": 5,
-      "image": "images/TEQ-001.jpg",
+      "glassType": "cocktail",
+      "public": true,
+      "archiveReason": "",
+      "recipeNote": "2:1:1 비율의 마가리타. 소금이 준비되어 있다면 잔 가장자리 절반에만 소금 리밍을 선택할 수 있습니다.",
       "featured": true
     },
     {
@@ -1162,7 +618,7 @@
       "categoryName": "데킬라",
       "base": "데킬라",
       "style": "롱드링크",
-      "glass": "하이볼 글래스",
+      "glass": "일반 플라스틱잔",
       "ingredients": [
         {
           "item": "데킬라",
@@ -1184,17 +640,20 @@
       "abv": 11,
       "sweetness": 4,
       "sourness": 1,
-      "image": "images/TEQ-002.jpg",
-      "featured": true
+      "glassType": "plastic",
+      "public": true,
+      "archiveReason": "",
+      "recipeNote": "",
+      "featured": false
     },
     {
       "id": "TEQ-003",
-      "name": "프레시 팔로마",
+      "name": "팔로마",
       "category": "tequila",
       "categoryName": "데킬라",
       "base": "데킬라",
       "style": "롱드링크",
-      "glass": "하이볼 글래스",
+      "glass": "일반 플라스틱잔",
       "ingredients": [
         {
           "item": "데킬라",
@@ -1224,193 +683,20 @@
       "abv": 8,
       "sweetness": 2,
       "sourness": 4,
-      "image": "images/TEQ-003.jpg",
-      "featured": false
-    },
-    {
-      "id": "TEQ-004",
-      "name": "마타도르",
-      "category": "tequila",
-      "categoryName": "데킬라",
-      "base": "데킬라",
-      "style": "롱드링크",
-      "glass": "하이볼 글래스",
-      "ingredients": [
-        {
-          "item": "데킬라",
-          "amount": "45 ml"
-        },
-        {
-          "item": "파인애플주스",
-          "amount": "90 ml"
-        },
-        {
-          "item": "라임주스",
-          "amount": "15 ml"
-        }
-      ],
-      "method": "쉐이크 후 얼음잔에 따름",
-      "garnish": "파인애플 조각",
-      "description": "데킬라와 파인애플이 만나 열대과일 향이 강한 새콤달콤한 칵테일.",
-      "abvText": "약 10%",
-      "abv": 10,
-      "sweetness": 3,
-      "sourness": 3,
-      "image": "images/TEQ-004.jpg",
-      "featured": false
-    },
-    {
-      "id": "TEQ-005",
-      "name": "데킬라 콜린스",
-      "category": "tequila",
-      "categoryName": "데킬라",
-      "base": "데킬라",
-      "style": "롱드링크",
-      "glass": "하이볼 글래스",
-      "ingredients": [
-        {
-          "item": "데킬라",
-          "amount": "45 ml"
-        },
-        {
-          "item": "레몬주스",
-          "amount": "25 ml"
-        },
-        {
-          "item": "심플시럽",
-          "amount": "15 ml"
-        },
-        {
-          "item": "탄산수",
-          "amount": "90 ml"
-        }
-      ],
-      "method": "데킬라·레몬·시럽을 쉐이크한 뒤 탄산수 추가",
-      "garnish": "레몬 휠",
-      "description": "레몬과 탄산으로 데킬라를 가볍게 만든 콜린스 스타일.",
-      "abvText": "약 8%",
-      "abv": 8,
-      "sweetness": 3,
-      "sourness": 3,
-      "image": "images/TEQ-005.jpg",
-      "featured": false
-    },
-    {
-      "id": "TEQ-006",
-      "name": "데킬라 토닉",
-      "category": "tequila",
-      "categoryName": "데킬라",
-      "base": "데킬라",
-      "style": "롱드링크",
-      "glass": "하이볼 글래스",
-      "ingredients": [
-        {
-          "item": "데킬라",
-          "amount": "45 ml"
-        },
-        {
-          "item": "토닉워터",
-          "amount": "120 ml"
-        },
-        {
-          "item": "라임주스",
-          "amount": "10 ml"
-        }
-      ],
-      "method": "얼음을 채운 잔에 빌드",
-      "garnish": "라임 웨지",
-      "description": "토닉의 쌉쌀함이 데킬라 향을 깔끔하게 정리해주는 롱드링크.",
-      "abvText": "약 10%",
-      "abv": 10,
-      "sweetness": 2,
-      "sourness": 2,
-      "image": "images/TEQ-006.jpg",
-      "featured": false
-    },
-    {
-      "id": "TEQ-007",
-      "name": "멕시칸 진저 라임",
-      "category": "tequila",
-      "categoryName": "데킬라",
-      "base": "데킬라",
-      "style": "롱드링크",
-      "glass": "하이볼 글래스",
-      "ingredients": [
-        {
-          "item": "데킬라",
-          "amount": "45 ml"
-        },
-        {
-          "item": "라임주스",
-          "amount": "15 ml"
-        },
-        {
-          "item": "진저에일",
-          "amount": "120 ml"
-        }
-      ],
-      "method": "얼음을 채운 잔에 빌드",
-      "garnish": "라임 웨지",
-      "description": "진저에일의 향신료 느낌과 데킬라가 잘 맞는 뮬 스타일의 칵테일.",
-      "abvText": "약 9%",
-      "abv": 9,
-      "sweetness": 3,
-      "sourness": 2,
-      "image": "images/TEQ-007.jpg",
-      "featured": false
-    },
-    {
-      "id": "TEQ-008",
-      "name": "칸타리토",
-      "category": "tequila",
-      "categoryName": "데킬라",
-      "base": "데킬라",
-      "style": "롱드링크",
-      "glass": "하이볼 글래스",
-      "ingredients": [
-        {
-          "item": "데킬라",
-          "amount": "45 ml"
-        },
-        {
-          "item": "자몽주스",
-          "amount": "35 ml"
-        },
-        {
-          "item": "오렌지주스",
-          "amount": "30 ml"
-        },
-        {
-          "item": "라임주스",
-          "amount": "15 ml"
-        },
-        {
-          "item": "탄산수",
-          "amount": "70 ml"
-        },
-        {
-          "item": "심플시럽",
-          "amount": "5 ml"
-        }
-      ],
-      "method": "얼음을 채운 잔에 빌드",
-      "garnish": "오렌지 또는 라임 웨지",
-      "description": "여러 시트러스와 데킬라를 한 잔에 담은 과즙감 높은 칵테일.",
-      "abvText": "약 8%",
-      "abv": 8,
-      "sweetness": 3,
-      "sourness": 4,
-      "image": "images/TEQ-008.jpg",
+      "glassType": "plastic",
+      "public": true,
+      "archiveReason": "",
+      "recipeNote": "자몽주스 버전. 자몽 소다 대신 자몽주스·탄산수·시럽을 사용합니다.",
       "featured": false
     },
     {
       "id": "TEQ-009",
-      "name": "엘 디아블로 스타일",
+      "name": "엘 디아블로",
       "category": "tequila",
       "categoryName": "데킬라",
       "base": "데킬라",
       "style": "롱드링크",
-      "glass": "하이볼 글래스",
+      "glass": "일반 플라스틱잔",
       "ingredients": [
         {
           "item": "데킬라",
@@ -1436,52 +722,23 @@
       "abv": 10,
       "sweetness": 4,
       "sourness": 3,
-      "image": "images/TEQ-009.jpg",
-      "featured": true
-    },
-    {
-      "id": "TEQ-010",
-      "name": "데킬라 크랜베리",
-      "category": "tequila",
-      "categoryName": "데킬라",
-      "base": "데킬라",
-      "style": "롱드링크",
-      "glass": "하이볼 글래스",
-      "ingredients": [
-        {
-          "item": "데킬라",
-          "amount": "45 ml"
-        },
-        {
-          "item": "크랜베리주스",
-          "amount": "110 ml"
-        },
-        {
-          "item": "라임주스",
-          "amount": "10 ml"
-        }
-      ],
-      "method": "얼음을 채운 잔에 빌드",
-      "garnish": "라임 웨지",
-      "description": "크랜베리의 산뜻한 과일맛으로 데킬라를 편하게 마시는 조합.",
-      "abvText": "약 10%",
-      "abv": 10,
-      "sweetness": 3,
-      "sourness": 3,
-      "image": "images/TEQ-010.jpg",
+      "glassType": "plastic",
+      "public": true,
+      "archiveReason": "",
+      "recipeNote": "진저에일 레시피. 엘 디아블로에는 진저에일을 쓰는 전통 레시피도 있으며, 이 메뉴는 보유 재료에 맞춘 비율입니다.",
       "featured": false
     },
     {
       "id": "WHI-001",
-      "name": "사쿠라오 하이볼",
+      "name": "하이볼",
       "category": "whisky",
       "categoryName": "위스키",
       "base": "위스키",
       "style": "롱드링크",
-      "glass": "하이볼 글래스",
+      "glass": "일반 플라스틱잔",
       "ingredients": [
         {
-          "item": "SAKURAO Whisky",
+          "item": "위스키 (사쿠라오 또는 블랙 루비)",
           "amount": "45 ml"
         },
         {
@@ -1491,97 +748,16 @@
       ],
       "method": "얼음을 채운 잔에 빌드",
       "garnish": "레몬 필",
-      "description": "위스키 향을 살리면서 가장 깔끔하게 마시는 하이볼.",
+      "description": "위스키와 탄산수를 1:3으로 섞은 청량한 하이볼. 위스키는 사쿠라오 또는 블랙 루비 중 선택합니다.",
       "abvText": "약 9%",
       "abv": 9,
       "sweetness": 1,
       "sourness": 0,
-      "image": "images/WHI-001.jpg",
-      "featured": false
-    },
-    {
-      "id": "WHI-002",
-      "name": "블랙 루비 하이볼",
-      "category": "whisky",
-      "categoryName": "위스키",
-      "base": "위스키",
-      "style": "롱드링크",
-      "glass": "하이볼 글래스",
-      "ingredients": [
-        {
-          "item": "Johnnie Walker Black Ruby",
-          "amount": "45 ml"
-        },
-        {
-          "item": "탄산수",
-          "amount": "135 ml"
-        }
-      ],
-      "method": "얼음을 채운 잔에 빌드",
-      "garnish": "오렌지 필",
-      "description": "블렌디드 위스키의 달콤한 향을 길고 가볍게 즐기는 하이볼.",
-      "abvText": "약 9%",
-      "abv": 9,
-      "sweetness": 1,
-      "sourness": 0,
-      "image": "images/WHI-002.jpg",
-      "featured": false
-    },
-    {
-      "id": "WHI-003",
-      "name": "위스키 진저",
-      "category": "whisky",
-      "categoryName": "위스키",
-      "base": "위스키",
-      "style": "롱드링크",
-      "glass": "하이볼 글래스",
-      "ingredients": [
-        {
-          "item": "Johnnie Walker Black Ruby",
-          "amount": "45 ml"
-        },
-        {
-          "item": "진저에일",
-          "amount": "120 ml"
-        }
-      ],
-      "method": "얼음을 채운 잔에 빌드",
-      "garnish": "레몬 웨지",
-      "description": "위스키와 진저의 달콤하고 향긋한 조합.",
-      "abvText": "약 10%",
-      "abv": 10,
-      "sweetness": 3,
-      "sourness": 1,
-      "image": "images/WHI-003.jpg",
-      "featured": false
-    },
-    {
-      "id": "WHI-004",
-      "name": "위스키 콕",
-      "category": "whisky",
-      "categoryName": "위스키",
-      "base": "위스키",
-      "style": "롱드링크",
-      "glass": "하이볼 글래스",
-      "ingredients": [
-        {
-          "item": "Maker's Mark",
-          "amount": "45 ml"
-        },
-        {
-          "item": "콜라",
-          "amount": "120 ml"
-        }
-      ],
-      "method": "얼음을 채운 잔에 빌드",
-      "garnish": "레몬 웨지",
-      "description": "버번의 바닐라·카라멜 느낌과 콜라가 자연스럽게 이어진다.",
-      "abvText": "약 11%",
-      "abv": 11,
-      "sweetness": 4,
-      "sourness": 0,
-      "image": "images/WHI-004.jpg",
-      "featured": false
+      "glassType": "plastic",
+      "public": true,
+      "archiveReason": "",
+      "recipeNote": "위스키 45 ml + 탄산수 135 ml (1:3). 사쿠라오 또는 블랙 루비 중 한 가지를 사용합니다. 라이 위스키는 사용하지 않습니다.",
+      "featured": true
     },
     {
       "id": "WHI-005",
@@ -1589,8 +765,8 @@
       "category": "whisky",
       "categoryName": "위스키",
       "base": "위스키",
-      "style": "숏",
-      "glass": "칵테일 글래스",
+      "style": "숏드링크",
+      "glass": "락글라스",
       "ingredients": [
         {
           "item": "Maker's Mark",
@@ -1612,7 +788,10 @@
       "abv": 21,
       "sweetness": 3,
       "sourness": 4,
-      "image": "images/WHI-005.jpg",
+      "glassType": "rocks",
+      "public": true,
+      "archiveReason": "",
+      "recipeNote": "버번 사워. 달걀흰자를 넣지 않는 레시피입니다.",
       "featured": false
     },
     {
@@ -1621,8 +800,8 @@
       "category": "whisky",
       "categoryName": "위스키",
       "base": "위스키",
-      "style": "숏",
-      "glass": "온더락 글래스",
+      "style": "숏드링크",
+      "glass": "락글라스",
       "ingredients": [
         {
           "item": "Maker's Mark",
@@ -1640,139 +819,10 @@
       "abv": 34,
       "sweetness": 4,
       "sourness": 0,
-      "image": "images/WHI-006.jpg",
-      "featured": true
-    },
-    {
-      "id": "WHI-007",
-      "name": "워드 에이트",
-      "category": "whisky",
-      "categoryName": "위스키",
-      "base": "위스키",
-      "style": "숏",
-      "glass": "칵테일 글래스",
-      "ingredients": [
-        {
-          "item": "Sazerac Rye",
-          "amount": "45 ml"
-        },
-        {
-          "item": "레몬주스",
-          "amount": "15 ml"
-        },
-        {
-          "item": "오렌지주스",
-          "amount": "15 ml"
-        },
-        {
-          "item": "그레나딘",
-          "amount": "7 ml"
-        }
-      ],
-      "method": "쉐이크 후 스트레인",
-      "garnish": "오렌지 슬라이스 + 체리",
-      "description": "라이 위스키에 레몬·오렌지·그레나딘을 더한 과일향 좋은 클래식.",
-      "abvText": "약 22%",
-      "abv": 22,
-      "sweetness": 3,
-      "sourness": 3,
-      "image": "images/WHI-007.jpg",
-      "featured": false
-    },
-    {
-      "id": "WHI-008",
-      "name": "버번 사이드카",
-      "category": "whisky",
-      "categoryName": "위스키",
-      "base": "위스키",
-      "style": "숏",
-      "glass": "칵테일 글래스",
-      "ingredients": [
-        {
-          "item": "Maker's Mark",
-          "amount": "45 ml"
-        },
-        {
-          "item": "Cointreau",
-          "amount": "25 ml"
-        },
-        {
-          "item": "레몬주스",
-          "amount": "25 ml"
-        }
-      ],
-      "method": "쉐이크 후 스트레인",
-      "garnish": "오렌지 필",
-      "description": "사이드카의 구조를 버번으로 바꿔 오렌지향과 산미를 강조한 변형.",
-      "abvText": "약 27%",
-      "abv": 27,
-      "sweetness": 2,
-      "sourness": 4,
-      "image": "images/WHI-008.jpg",
-      "featured": false
-    },
-    {
-      "id": "WHI-009",
-      "name": "라이 사워",
-      "category": "whisky",
-      "categoryName": "위스키",
-      "base": "위스키",
-      "style": "숏",
-      "glass": "칵테일 글래스",
-      "ingredients": [
-        {
-          "item": "Sazerac Rye",
-          "amount": "50 ml"
-        },
-        {
-          "item": "레몬주스",
-          "amount": "25 ml"
-        },
-        {
-          "item": "심플시럽",
-          "amount": "15 ml"
-        }
-      ],
-      "method": "쉐이크 후 스트레인",
-      "garnish": "레몬 필 + 체리",
-      "description": "스파이시한 라이 위스키를 레몬과 설탕으로 정리한 선명한 사워.",
-      "abvText": "약 21%",
-      "abv": 21,
-      "sweetness": 3,
-      "sourness": 4,
-      "image": "images/WHI-009.jpg",
-      "featured": false
-    },
-    {
-      "id": "WHI-010",
-      "name": "버번 크랜베리 하이볼",
-      "category": "whisky",
-      "categoryName": "위스키",
-      "base": "위스키",
-      "style": "롱드링크",
-      "glass": "하이볼 글래스",
-      "ingredients": [
-        {
-          "item": "Maker's Mark",
-          "amount": "40 ml"
-        },
-        {
-          "item": "크랜베리주스",
-          "amount": "60 ml"
-        },
-        {
-          "item": "탄산수",
-          "amount": "70 ml"
-        }
-      ],
-      "method": "얼음을 채운 잔에 빌드",
-      "garnish": "오렌지 슬라이스",
-      "description": "버번에 크랜베리와 탄산을 더해 가볍게 만든 과일 하이볼.",
-      "abvText": "약 10%",
-      "abv": 10,
-      "sweetness": 2,
-      "sourness": 2,
-      "image": "images/WHI-010.jpg",
+      "glassType": "rocks",
+      "public": true,
+      "archiveReason": "",
+      "recipeNote": "버번 버전. 스카치 대신 보유한 메이커스 마크를 사용합니다.",
       "featured": false
     },
     {
@@ -1781,8 +831,8 @@
       "category": "liqueur",
       "categoryName": "리큐르",
       "base": "아마레또",
-      "style": "숏",
-      "glass": "칵테일 글래스",
+      "style": "숏드링크",
+      "glass": "락글라스",
       "ingredients": [
         {
           "item": "Disaronno",
@@ -1804,75 +854,10 @@
       "abv": 14,
       "sweetness": 5,
       "sourness": 4,
-      "image": "images/LIQ-001.jpg",
-      "featured": true
-    },
-    {
-      "id": "LIQ-002",
-      "name": "아마레또 버번 사워",
-      "category": "liqueur",
-      "categoryName": "리큐르",
-      "base": "아마레또",
-      "style": "숏",
-      "glass": "칵테일 글래스",
-      "ingredients": [
-        {
-          "item": "Disaronno",
-          "amount": "40 ml"
-        },
-        {
-          "item": "Maker's Mark",
-          "amount": "20 ml"
-        },
-        {
-          "item": "레몬주스",
-          "amount": "30 ml"
-        },
-        {
-          "item": "심플시럽",
-          "amount": "5 ml"
-        }
-      ],
-      "method": "쉐이크 후 스트레인",
-      "garnish": "오렌지 슬라이스 + 체리",
-      "description": "아마레또 사워에 버번을 더해 단맛을 줄이고 깊이를 높인 버전.",
-      "abvText": "약 18%",
-      "abv": 18,
-      "sweetness": 4,
-      "sourness": 4,
-      "image": "images/LIQ-002.jpg",
-      "featured": false
-    },
-    {
-      "id": "LIQ-003",
-      "name": "디사론노 피즈",
-      "category": "liqueur",
-      "categoryName": "리큐르",
-      "base": "아마레또",
-      "style": "롱드링크",
-      "glass": "하이볼 글래스",
-      "ingredients": [
-        {
-          "item": "Disaronno",
-          "amount": "45 ml"
-        },
-        {
-          "item": "레몬주스",
-          "amount": "20 ml"
-        },
-        {
-          "item": "탄산수",
-          "amount": "100 ml"
-        }
-      ],
-      "method": "얼음을 채운 잔에 빌드",
-      "garnish": "레몬 휠",
-      "description": "아마레또의 달콤함을 레몬과 탄산으로 가볍게 풀어낸 칵테일.",
-      "abvText": "약 7%",
-      "abv": 7,
-      "sweetness": 4,
-      "sourness": 3,
-      "image": "images/LIQ-003.jpg",
+      "glassType": "rocks",
+      "public": true,
+      "archiveReason": "",
+      "recipeNote": "달걀흰자를 넣지 않는 아마레또 사워입니다.",
       "featured": false
     },
     {
@@ -1881,8 +866,8 @@
       "category": "liqueur",
       "categoryName": "리큐르",
       "base": "아마레또",
-      "style": "숏",
-      "glass": "온더락 글래스",
+      "style": "숏드링크",
+      "glass": "락글라스",
       "ingredients": [
         {
           "item": "보드카",
@@ -1900,39 +885,10 @@
       "abv": 32,
       "sweetness": 4,
       "sourness": 0,
-      "image": "images/LIQ-004.jpg",
-      "featured": false
-    },
-    {
-      "id": "LIQ-005",
-      "name": "보체 볼",
-      "category": "liqueur",
-      "categoryName": "리큐르",
-      "base": "아마레또",
-      "style": "롱드링크",
-      "glass": "하이볼 글래스",
-      "ingredients": [
-        {
-          "item": "Disaronno",
-          "amount": "40 ml"
-        },
-        {
-          "item": "오렌지주스",
-          "amount": "100 ml"
-        },
-        {
-          "item": "탄산수",
-          "amount": "30 ml"
-        }
-      ],
-      "method": "얼음을 채운 잔에 빌드",
-      "garnish": "오렌지 슬라이스",
-      "description": "아마레또와 오렌지를 길게 마시는 달콤하고 편안한 칵테일.",
-      "abvText": "약 6%",
-      "abv": 6,
-      "sweetness": 5,
-      "sourness": 1,
-      "image": "images/LIQ-005.jpg",
+      "glassType": "rocks",
+      "public": true,
+      "archiveReason": "",
+      "recipeNote": "",
       "featured": false
     },
     {
@@ -1942,7 +898,7 @@
       "categoryName": "리큐르",
       "base": "카시스",
       "style": "롱드링크",
-      "glass": "하이볼 글래스",
+      "glass": "일반 플라스틱잔",
       "ingredients": [
         {
           "item": "Crème de Cassis",
@@ -1960,123 +916,10 @@
       "abv": 3,
       "sweetness": 5,
       "sourness": 2,
-      "image": "images/LIQ-006.jpg",
-      "featured": false
-    },
-    {
-      "id": "LIQ-007",
-      "name": "카시스 소다",
-      "category": "liqueur",
-      "categoryName": "리큐르",
-      "base": "카시스",
-      "style": "롱드링크",
-      "glass": "하이볼 글래스",
-      "ingredients": [
-        {
-          "item": "Crème de Cassis",
-          "amount": "30 ml"
-        },
-        {
-          "item": "탄산수",
-          "amount": "120 ml"
-        },
-        {
-          "item": "레몬주스",
-          "amount": "10 ml"
-        }
-      ],
-      "method": "얼음을 채운 잔에 빌드",
-      "garnish": "레몬 휠",
-      "description": "카시스를 탄산과 레몬으로 가볍게 풀어낸 저도수 칵테일.",
-      "abvText": "약 3%",
-      "abv": 3,
-      "sweetness": 3,
-      "sourness": 2,
-      "image": "images/LIQ-007.jpg",
-      "featured": false
-    },
-    {
-      "id": "LIQ-008",
-      "name": "카시스 토닉",
-      "category": "liqueur",
-      "categoryName": "리큐르",
-      "base": "카시스",
-      "style": "롱드링크",
-      "glass": "하이볼 글래스",
-      "ingredients": [
-        {
-          "item": "Crème de Cassis",
-          "amount": "30 ml"
-        },
-        {
-          "item": "토닉워터",
-          "amount": "120 ml"
-        }
-      ],
-      "method": "얼음을 채운 잔에 빌드",
-      "garnish": "라임 웨지",
-      "description": "달콤한 카시스와 쌉쌀한 토닉의 대비가 좋은 저도수 칵테일.",
-      "abvText": "약 3%",
-      "abv": 3,
-      "sweetness": 4,
-      "sourness": 1,
-      "image": "images/LIQ-008.jpg",
-      "featured": false
-    },
-    {
-      "id": "LIQ-009",
-      "name": "카시스 진저",
-      "category": "liqueur",
-      "categoryName": "리큐르",
-      "base": "카시스",
-      "style": "롱드링크",
-      "glass": "하이볼 글래스",
-      "ingredients": [
-        {
-          "item": "Crème de Cassis",
-          "amount": "30 ml"
-        },
-        {
-          "item": "진저에일",
-          "amount": "120 ml"
-        }
-      ],
-      "method": "얼음을 채운 잔에 빌드",
-      "garnish": "레몬 웨지",
-      "description": "베리와 진저의 달콤하고 향긋한 조합.",
-      "abvText": "약 3%",
-      "abv": 3,
-      "sweetness": 5,
-      "sourness": 1,
-      "image": "images/LIQ-009.jpg",
-      "featured": false
-    },
-    {
-      "id": "LIQ-010",
-      "name": "카시스 그레이프프루트",
-      "category": "liqueur",
-      "categoryName": "리큐르",
-      "base": "카시스",
-      "style": "롱드링크",
-      "glass": "하이볼 글래스",
-      "ingredients": [
-        {
-          "item": "Crème de Cassis",
-          "amount": "30 ml"
-        },
-        {
-          "item": "자몽주스",
-          "amount": "120 ml"
-        }
-      ],
-      "method": "얼음을 채운 잔에 빌드",
-      "garnish": "라임 웨지",
-      "description": "카시스의 단맛을 자몽의 쌉쌀한 산미가 잡아준다.",
-      "abvText": "약 3%",
-      "abv": 3,
-      "sweetness": 4,
-      "sourness": 3,
-      "image": "images/LIQ-010.jpg",
+      "glassType": "plastic",
+      "public": true,
+      "archiveReason": "",
+      "recipeNote": "",
       "featured": false
     },
     {
@@ -2086,7 +929,7 @@
       "categoryName": "리큐르",
       "base": "피치 리큐르",
       "style": "롱드링크",
-      "glass": "하이볼 글래스",
+      "glass": "일반 플라스틱잔",
       "ingredients": [
         {
           "item": "Peach Liqueur",
@@ -2104,132 +947,11 @@
       "abv": 5,
       "sweetness": 5,
       "sourness": 1,
-      "image": "images/LIQ-011.jpg",
-      "featured": false
-    },
-    {
-      "id": "LIQ-012",
-      "name": "피치 진저",
-      "category": "liqueur",
-      "categoryName": "리큐르",
-      "base": "피치 리큐르",
-      "style": "롱드링크",
-      "glass": "하이볼 글래스",
-      "ingredients": [
-        {
-          "item": "Peach Liqueur",
-          "amount": "30 ml"
-        },
-        {
-          "item": "진저에일",
-          "amount": "120 ml"
-        },
-        {
-          "item": "레몬주스",
-          "amount": "10 ml"
-        }
-      ],
-      "method": "얼음을 채운 잔에 빌드",
-      "garnish": "레몬 웨지",
-      "description": "복숭아의 단맛에 진저와 레몬을 더해 산뜻하게 만든 칵테일.",
-      "abvText": "약 4%",
-      "abv": 4,
-      "sweetness": 4,
-      "sourness": 2,
-      "image": "images/LIQ-012.jpg",
-      "featured": false
-    },
-    {
-      "id": "LIQ-013",
-      "name": "코앵트로 피즈",
-      "category": "liqueur",
-      "categoryName": "리큐르",
-      "base": "코앵트로",
-      "style": "롱드링크",
-      "glass": "하이볼 글래스",
-      "ingredients": [
-        {
-          "item": "Cointreau",
-          "amount": "50 ml"
-        },
-        {
-          "item": "라임주스",
-          "amount": "20 ml"
-        },
-        {
-          "item": "탄산수",
-          "amount": "100 ml"
-        }
-      ],
-      "method": "얼음을 채운 잔에 빌드",
-      "garnish": "라임 휠",
-      "description": "오렌지 리큐르의 향을 라임과 탄산으로 길게 즐기는 상쾌한 칵테일.",
-      "abvText": "약 11%",
-      "abv": 11,
-      "sweetness": 3,
-      "sourness": 3,
-      "image": "images/LIQ-013.jpg",
-      "featured": false
-    },
-    {
-      "id": "LIQ-014",
-      "name": "코앵트로 토닉",
-      "category": "liqueur",
-      "categoryName": "리큐르",
-      "base": "코앵트로",
-      "style": "롱드링크",
-      "glass": "하이볼 글래스",
-      "ingredients": [
-        {
-          "item": "Cointreau",
-          "amount": "40 ml"
-        },
-        {
-          "item": "토닉워터",
-          "amount": "120 ml"
-        },
-        {
-          "item": "라임주스",
-          "amount": "10 ml"
-        }
-      ],
-      "method": "얼음을 채운 잔에 빌드",
-      "garnish": "오렌지 또는 라임 웨지",
-      "description": "오렌지향과 토닉의 쌉쌀함이 어우러지는 가벼운 리큐르 하이볼.",
-      "abvText": "약 9%",
-      "abv": 9,
-      "sweetness": 3,
-      "sourness": 2,
-      "image": "images/LIQ-014.jpg",
-      "featured": false
-    },
-    {
-      "id": "LIQ-015",
-      "name": "코코넛 파인애플",
-      "category": "liqueur",
-      "categoryName": "리큐르",
-      "base": "코코넛 리큐르",
-      "style": "롱드링크",
-      "glass": "하이볼 글래스",
-      "ingredients": [
-        {
-          "item": "Coconut Liqueur",
-          "amount": "40 ml"
-        },
-        {
-          "item": "파인애플주스",
-          "amount": "120 ml"
-        }
-      ],
-      "method": "얼음을 채운 잔에 빌드",
-      "garnish": "파인애플 조각 + 체리",
-      "description": "코코넛과 파인애플의 전형적인 트로피컬 조합을 가볍게 즐긴다.",
-      "abvText": "약 5%",
-      "abv": 5,
-      "sweetness": 5,
-      "sourness": 1,
-      "image": "images/LIQ-015.jpg",
-      "featured": false
+      "glassType": "plastic",
+      "public": true,
+      "archiveReason": "",
+      "recipeNote": "",
+      "featured": true
     },
     {
       "id": "LIQ-016",
@@ -2238,7 +960,7 @@
       "categoryName": "리큐르",
       "base": "피치 리큐르",
       "style": "롱드링크",
-      "glass": "하이볼 글래스",
+      "glass": "일반 플라스틱잔",
       "ingredients": [
         {
           "item": "Peach Liqueur",
@@ -2264,7 +986,10 @@
       "abv": 5,
       "sweetness": 4,
       "sourness": 3,
-      "image": "images/LIQ-016.jpg",
+      "glassType": "plastic",
+      "public": true,
+      "archiveReason": "",
+      "recipeNote": "",
       "featured": true
     },
     {
@@ -2274,7 +999,7 @@
       "categoryName": "리큐르",
       "base": "피치 & 코코넛",
       "style": "롱드링크",
-      "glass": "하이볼 글래스",
+      "glass": "일반 플라스틱잔",
       "ingredients": [
         {
           "item": "Peach Liqueur",
@@ -2308,17 +1033,20 @@
       "abv": 5,
       "sweetness": 5,
       "sourness": 2,
-      "image": "images/LIQ-017.jpg",
-      "featured": true
+      "glassType": "plastic",
+      "public": true,
+      "archiveReason": "",
+      "recipeNote": "하우스 레시피. 보유한 피치·코코넛 리큐르와 과일주스로 구성한 파티 버전입니다.",
+      "featured": false
     },
     {
       "id": "DES-001",
-      "name": "초콜릿 마티니 스타일",
+      "name": "초콜릿 마티니",
       "category": "dessert",
       "categoryName": "디저트",
       "base": "디저트",
-      "style": "숏",
-      "glass": "칵테일 글래스",
+      "style": "숏드링크",
+      "glass": "칵테일글라스",
       "ingredients": [
         {
           "item": "보드카",
@@ -2340,103 +1068,10 @@
       "abv": 16,
       "sweetness": 5,
       "sourness": 0,
-      "image": "images/DES-001.jpg",
-      "featured": false
-    },
-    {
-      "id": "DES-002",
-      "name": "초콜릿 오렌지",
-      "category": "dessert",
-      "categoryName": "디저트",
-      "base": "디저트",
-      "style": "숏",
-      "glass": "칵테일 글래스",
-      "ingredients": [
-        {
-          "item": "Mozart Chocolate Cream",
-          "amount": "30 ml"
-        },
-        {
-          "item": "Cointreau",
-          "amount": "15 ml"
-        },
-        {
-          "item": "우유",
-          "amount": "45 ml"
-        }
-      ],
-      "method": "충분히 차갑게 쉐이크 후 스트레인",
-      "garnish": "오렌지 필",
-      "description": "초콜릿과 오렌지 향이 디저트처럼 진하게 이어지는 칵테일.",
-      "abvText": "약 10%",
-      "abv": 10,
-      "sweetness": 5,
-      "sourness": 0,
-      "image": "images/DES-002.jpg",
-      "featured": false
-    },
-    {
-      "id": "DES-003",
-      "name": "초콜릿 아마레또",
-      "category": "dessert",
-      "categoryName": "디저트",
-      "base": "디저트",
-      "style": "숏",
-      "glass": "칵테일 글래스",
-      "ingredients": [
-        {
-          "item": "Mozart Chocolate Cream",
-          "amount": "30 ml"
-        },
-        {
-          "item": "Disaronno",
-          "amount": "20 ml"
-        },
-        {
-          "item": "우유",
-          "amount": "45 ml"
-        }
-      ],
-      "method": "충분히 차갑게 쉐이크 후 스트레인",
-      "garnish": "체리",
-      "description": "초콜릿과 아몬드 계열의 풍미가 어우러지는 매우 달콤한 디저트 칵테일.",
-      "abvText": "약 9%",
-      "abv": 9,
-      "sweetness": 5,
-      "sourness": 0,
-      "image": "images/DES-003.jpg",
-      "featured": false
-    },
-    {
-      "id": "DES-004",
-      "name": "초콜릿 코코넛",
-      "category": "dessert",
-      "categoryName": "디저트",
-      "base": "디저트",
-      "style": "숏",
-      "glass": "칵테일 글래스",
-      "ingredients": [
-        {
-          "item": "Mozart Chocolate Cream",
-          "amount": "30 ml"
-        },
-        {
-          "item": "Coconut Liqueur",
-          "amount": "20 ml"
-        },
-        {
-          "item": "우유",
-          "amount": "45 ml"
-        }
-      ],
-      "method": "충분히 차갑게 쉐이크 후 스트레인",
-      "garnish": "체리",
-      "description": "초콜릿과 코코넛을 우유로 부드럽게 연결한 달콤한 디저트 칵테일.",
-      "abvText": "약 8%",
-      "abv": 8,
-      "sweetness": 5,
-      "sourness": 0,
-      "image": "images/DES-004.jpg",
+      "glassType": "cocktail",
+      "public": true,
+      "archiveReason": "",
+      "recipeNote": "하우스 레시피. 모차르트 초콜릿 크림과 우유를 사용한 변형이며 유제품을 포함합니다.",
       "featured": false
     },
     {
@@ -2446,7 +1081,7 @@
       "categoryName": "믹스",
       "base": "멀티 스피릿",
       "style": "롱드링크",
-      "glass": "하이볼 글래스",
+      "glass": "일반 플라스틱잔",
       "ingredients": [
         {
           "item": "진",
@@ -2488,8 +1123,11 @@
       "abv": 22,
       "sweetness": 3,
       "sourness": 3,
-      "image": "images/MIX-001.jpg",
-      "featured": true
+      "glassType": "plastic",
+      "public": true,
+      "archiveReason": "",
+      "recipeNote": "",
+      "featured": false
     }
   ]
 }
